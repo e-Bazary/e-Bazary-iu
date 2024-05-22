@@ -24,7 +24,9 @@ a {
   --black: #000;
 }
 h1 {
-  font-family: Kaushan Script, cursive !important;
+  font-family:
+    Kaushan Script,
+    cursive !important;
 }
 .menu-items {
   border-radius: 6px !important;
