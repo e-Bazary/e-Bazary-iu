@@ -23,7 +23,8 @@ a {
   --white: #ffffff;
   --black: #000;
 }
-h1 {
+h1,
+h3 {
   font-family:
     Kaushan Script,
     cursive !important;

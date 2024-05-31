@@ -12,10 +12,14 @@ const Navbar: FC = () => {
       style={{
         display: "flex",
         justifyContent: "space-between",
-        backgroundColor: "blue",
+        backgroundColor: "transparent",
         height: "12vh",
         alignItems: "center",
         paddingInline: "1vw",
+        position: "absolute",
+        top: 0,
+        zIndex: 10,
+        width: "100%",
       }}
     >
       <h1>E-bazary</h1>
