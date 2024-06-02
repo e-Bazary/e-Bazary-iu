@@ -1,4 +1,5 @@
 import { Box, MenuItem, Link } from "@mui/material";
+import { useRedirect } from "react-admin";
 import {
   FaFileInvoiceDollar,
   FaHome,
@@ -8,6 +9,7 @@ import {
   FaUser,
 } from "react-icons/fa";
 function SideBar() {
+  const redirect = useRedirect();
   return (
     <Box
       sx={{
@@ -35,23 +37,48 @@ function SideBar() {
           paddingInline: "1vw",
         }}
       >
-        <MenuItem className="menu-items">
+        <MenuItem
+          className="menu-items"
+          onClick={() => {
+            redirect("list", "home");
+          }}
+        >
           <FaHome className="menu-icons" />
           <Link className="menu-link"> Home</Link>
         </MenuItem>
-        <MenuItem className="menu-items">
+        <MenuItem
+          className="menu-items"
+          onClick={() => {
+            redirect("list", "client");
+          }}
+        >
           <FaUser className="menu-icons" />
           <Link className="menu-link">Client</Link>
         </MenuItem>
-        <MenuItem className="menu-items">
+        <MenuItem
+          className="menu-items"
+          onClick={() => {
+            redirect("list", "car");
+          }}
+        >
           <FaCar className="menu-icons" />
           <Link className="menu-link">Car types</Link>
         </MenuItem>
-        <MenuItem className="menu-items">
+        <MenuItem
+          className="menu-items"
+          onClick={() => {
+            redirect("list", "agency");
+          }}
+        >
           <FaHotel className="menu-icons" />
           <Link className="menu-link">Agency</Link>
         </MenuItem>
-        <MenuItem className="menu-items">
+        <MenuItem
+          className="menu-items"
+          onClick={() => {
+            redirect("list", "reservation");
+          }}
+        >
           <FaFileInvoiceDollar className="menu-icons" />
           <Link className="menu-link">Reservation</Link>
         </MenuItem>
