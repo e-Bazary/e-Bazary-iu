@@ -43,8 +43,8 @@ const Navbar: FC = () => {
           variant="contained"
           size="medium"
           sx={{
-            color: "blue",
-            backgroundColor: "white",
+            "color": "blue",
+            "backgroundColor": "white",
             "&:hover": { backgroundColor: "whiteSmoke", color: "blue" },
           }}
         >

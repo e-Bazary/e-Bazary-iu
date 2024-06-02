@@ -1,5 +1,5 @@
 import { FC } from "react";
-import { Box } from "@mui/material";
+import { Box, SxProps } from "@mui/material";
 import Image from "next/image";
 import {
   FaFacebookF,
@@ -7,6 +7,7 @@ import {
   FaLinkedinIn,
   FaTwitter,
 } from "react-icons/fa6";
+
 const socialIconStyle = {
   width: "1.5rem",
   height: "1.5rem",
