@@ -13,9 +13,10 @@ const TeamSection: FC = () => {
         alignItems: "center",
         gap: "1rem",
         backgroundImage:
-          "linear-gradient(to bottom, rgba(255,0,0,0.6), rgba(255,0,0,0.5)), url('/assets/mini-cooper.jpg')",
+          "linear-gradient(to bottom, rgba(255,0,0,0.3), rgba(255,0,0,0.1)), url('/assets/mini-cooper.jpg')",
         backgroundSize: "cover",
         backgroundPosition: "center",
+        backgroundAttachment: "fixed",
         height: "80vh",
         textAlign: "center",
         color: "white",
@@ -35,10 +36,10 @@ const TeamSection: FC = () => {
           padding: "3vh 2vw",
         }}
       >
-        <TeamCard />
-        <TeamCard />
-        <TeamCard />
-        <TeamCard />
+        <TeamCard nom="Jean-Marc" position="Front-end developer" />
+        <TeamCard nom="Ronaldino" position="Back-end developer" />
+        <TeamCard nom="Rotsy" position="Back-end developer" />
+        <TeamCard nom="Mira" position="Front-end developer" />
       </Box>
     </Box>
   );

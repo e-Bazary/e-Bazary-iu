@@ -12,6 +12,18 @@ const Landing: FC = () => {
     <Box sx={{ position: "relative", backgroundColor: "background.default" }}>
       <Navbar />
       <HeroSection />
+      <Box
+        sx={{
+          width: "100%",
+          height: "fit-content",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          marginTop: "2vh",
+        }}
+      >
+        <Filter />
+      </Box>
       <About />
       <TopCar />
       <TeamSection />

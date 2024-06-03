@@ -126,7 +126,17 @@ const CarList = () => {
             <p style={pStyle}>Hybrid</p>
           </Box>
         </Box>
-        <Button variant="contained" sx={{ margin: "1vh auto", width: "100%" }}>
+        <Button
+          variant="contained"
+          sx={{
+            "margin": "1vh auto",
+            "width": "100%",
+            "backgroundColor": "#f04f4f",
+            "&:hover": {
+              backgroundColor: "red",
+            },
+          }}
+        >
           <p>Book Now</p>
         </Button>
       </Box>

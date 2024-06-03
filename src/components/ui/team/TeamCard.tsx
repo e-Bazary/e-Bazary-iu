@@ -17,7 +17,7 @@ const socialIconStyle = {
   alignItems: "center",
 };
 
-const TeamCard: FC = () => {
+const TeamCard: FC<{ nom: string; position: string }> = ({ nom, position }) => {
   return (
     <Box
       sx={{
@@ -42,8 +42,10 @@ const TeamCard: FC = () => {
         }}
       >
         <Box sx={{ display: "flex", flexDirection: "column", gap: "1vh" }}>
-          <h6 style={{ fontSize: "1.2rem", color: "blue" }}>John Doe</h6>
-          <p style={{ fontSize: "0.8rem", textAlign: "left" }}>CEO</p>
+          <h6 style={{ fontSize: "1.2rem", color: "blue", textAlign: "left" }}>
+            {nom}
+          </h6>
+          <p style={{ fontSize: "0.8rem", textAlign: "left" }}>{position}</p>
         </Box>
         <Box sx={{ width: "8vw", height: "8vw", borderRadius: "1rem" }}>
           <Image
@@ -64,7 +66,7 @@ const TeamCard: FC = () => {
         sx={{
           display: "flex",
           gap: "1.4rem",
-          background: "blue",
+          background: "#f04f4f",
           justifyContent: "center",
           padding: "0.3rem",
           margin: "0.5rem 0",
