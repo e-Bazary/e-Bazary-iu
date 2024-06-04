@@ -1,9 +1,12 @@
+"use client";
+import * as React from "react";
 import { Box, Button } from "@mui/material";
 import { FaDollarSign } from "react-icons/fa";
 import { LiaTachometerAltSolid } from "react-icons/lia";
 import { MdAirlineSeatReclineExtra } from "react-icons/md";
 import { RiGasStationLine } from "react-icons/ri";
-
+import Modal from "@mui/material/Modal";
+import CarShow from "./CarShow";
 const styles = {
   display: "flex",
   flexDirection: "column",
@@ -15,7 +18,12 @@ const iconStyle = {
 const pStyle = {
   fontSize: "0.9rem",
 };
+
 const CarList = () => {
+  const [open, setOpen] = React.useState(false);
+  const toggleModal = () => {
+    setOpen((prev) => !prev);
+  };
   return (
     <Box
       sx={{
@@ -41,7 +49,9 @@ const CarList = () => {
           display: "flex",
           justifyContent: "space-between",
           padding: "8px",
+          cursor: "pointer",
         }}
+        onClick={toggleModal}
       >
         <p
           style={{
@@ -140,6 +150,18 @@ const CarList = () => {
           <p>Book Now</p>
         </Button>
       </Box>
+      <Modal
+        open={open}
+        onClose={toggleModal}
+        sx={{
+          height: "100vh",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <CarShow onClose={toggleModal} />
+      </Modal>
     </Box>
   );
 };
