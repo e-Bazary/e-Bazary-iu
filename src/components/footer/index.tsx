@@ -1,7 +1,7 @@
-import React from 'react';
-import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from 'react-icons/fa';
-import Link from 'next/link';
-import styles from './Footer.module.css';
+import React from "react";
+import { FaFacebook, FaTwitter, FaInstagram, FaLinkedin } from "react-icons/fa";
+import Link from "next/link";
+import styles from "./Footer.module.css";
 
 const Footer: React.FC = () => {
   return (
@@ -15,20 +15,54 @@ const Footer: React.FC = () => {
           <div className={`${styles.column} ${styles.quickLinks}`}>
             <h3 className={styles.heading}>Quick Links</h3>
             <ul className={styles.list}>
-              <li className={styles.listItem}><Link href="/home">Home</Link></li>
-              <li className={styles.listItem}><Link href="/about">About Us</Link></li>
-              <li className={styles.listItem}><Link href="/top_car">Top car</Link></li>
-              <li className={styles.listItem}><Link href="/team">Team</Link></li>
-              <li className={styles.listItem}><Link href="/contact">Contact Us</Link></li>
+              <li className={styles.listItem}>
+                <Link href="/home">Home</Link>
+              </li>
+              <li className={styles.listItem}>
+                <Link href="/about">About Us</Link>
+              </li>
+              <li className={styles.listItem}>
+                <Link href="/top_car">Top car</Link>
+              </li>
+              <li className={styles.listItem}>
+                <Link href="/team">Team</Link>
+              </li>
+              <li className={styles.listItem}>
+                <Link href="/contact">Contact Us</Link>
+              </li>
             </ul>
           </div>
           <div className={styles.column}>
             <h3 className={styles.heading}>Follow Us</h3>
             <div className={styles.socialIcons}>
-              <a href="https://www.facebook.com" target="_blank" rel="noopener noreferrer"><FaFacebook /></a>
-              <a href="https://www.twitter.com" target="_blank" rel="noopener noreferrer"><FaTwitter /></a>
-              <a href="https://www.instagram.com" target="_blank" rel="noopener noreferrer"><FaInstagram /></a>
-              <a href="https://www.linkedin.com" target="_blank" rel="noopener noreferrer"><FaLinkedin /></a>
+              <a
+                href="https://www.facebook.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaFacebook />
+              </a>
+              <a
+                href="https://www.twitter.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaTwitter />
+              </a>
+              <a
+                href="https://www.instagram.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaInstagram />
+              </a>
+              <a
+                href="https://www.linkedin.com"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                <FaLinkedin />
+              </a>
             </div>
           </div>
           <div className={styles.column}>
@@ -39,11 +73,13 @@ const Footer: React.FC = () => {
           </div>
         </div>
         <div className={styles.bottomRow}>
-          <p>&copy; {new Date().getFullYear()} E-bazary. All rights reserved.</p>
+          <p>
+            &copy; {new Date().getFullYear()} E-bazary. All rights reserved.
+          </p>
         </div>
       </div>
     </footer>
   );
-}
+};
 
 export default Footer;
