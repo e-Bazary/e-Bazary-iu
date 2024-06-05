@@ -23,3 +23,8 @@ export type Car = {
   status: boolean;
   type: string;
 };
+
+export type Brand = {
+  id: number;
+  name: string;
+};

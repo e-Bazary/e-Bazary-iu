@@ -1,10 +1,13 @@
 import { DataProvider } from "react-admin";
 import { BazaryProvider } from "./types";
 import { carsProviders } from "./car-providers";
+import { brandProviders } from "./brand-provider";
 export const getProvider = (resource: string): BazaryProvider<any> => {
   switch (resource) {
     case "car":
       return carsProviders;
+    case "brand":
+      return brandProviders;
     default:
       throw new Error("Unknown resource type");
   }

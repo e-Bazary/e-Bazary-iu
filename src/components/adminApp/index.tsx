@@ -16,7 +16,7 @@ const AdminApp = () => (
     <Resource name="home" list={<p>hello from home</p>} />
     <Resource name="client" list={<p>not implemented</p>} />
     <Resource name="car" list={ListGuesser} />
-    <Resource name="agency" list={<p>not implemented</p>} />
+    <Resource name="brand" list={ListGuesser} />
     <Resource name="reservation" list={<p>not implemented</p>} />
   </Admin>
 );

@@ -8,6 +8,7 @@ import {
   FaSignOutAlt,
   FaUser,
 } from "react-icons/fa";
+import { SiWikimediafoundation } from "react-icons/si";
 function SideBar() {
   const redirect = useRedirect();
   return (
@@ -67,11 +68,11 @@ function SideBar() {
         <MenuItem
           className="menu-items"
           onClick={() => {
-            redirect("list", "agency");
+            redirect("list", "brand");
           }}
         >
-          <FaHotel className="menu-icons" />
-          <Link className="menu-link">Agency</Link>
+          <SiWikimediafoundation className="menu-icons" />
+          <Link className="menu-link">Brand</Link>
         </MenuItem>
         <MenuItem
           className="menu-items"
