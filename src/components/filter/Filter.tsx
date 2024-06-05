@@ -1,19 +1,24 @@
 import { Box, Typography, Button } from "@mui/material";
-import {
-  IoLocationOutline,
-  IoCalendarOutline,
-  IoPersonOutline,
-} from "react-icons/io5";
-function Filter() {
+import { IoLogoModelS } from "react-icons/io";
+import { IoColorPalette } from "react-icons/io5";
+import { MdAirlineSeatReclineExtra } from "react-icons/md";
+import { TbBrandAppleArcade } from "react-icons/tb";
+
+const filterColors = {
+  color: "#f04f4f",
+  fontSize: "1rem",
+};
+const icon = {
+  color: filterColors.color,
+  fontSize: filterColors.fontSize,
+};
+const Filter = () => {
   return (
     <Box
       sx={{
         backgroundColor: "white",
         width: "95%",
         height: "12vh",
-        position: "fixed",
-        top: "11.5vh",
-        left: "2.5vw",
         borderRadius: "8px",
         padding: "1vh 2vw",
         zIndex: "10",
@@ -34,8 +39,10 @@ function Filter() {
             color: "#4b1a9e",
           }}
         >
-          <IoLocationOutline />
-          <Typography variant="caption">filtre 1</Typography>
+          <TbBrandAppleArcade style={icon} />
+          <Typography variant="caption" sx={filterColors}>
+            Brand
+          </Typography>
         </Box>
         <Box>
           <select
@@ -64,8 +71,10 @@ function Filter() {
             color: "#4b1a9e",
           }}
         >
-          <IoCalendarOutline />
-          <Typography variant="caption">Filtre 2</Typography>
+          <IoLogoModelS style={icon} />
+          <Typography variant="caption" sx={filterColors}>
+            Model
+          </Typography>
         </Box>
         <Box>
           <select
@@ -94,8 +103,10 @@ function Filter() {
             color: "#4b1a9e",
           }}
         >
-          <IoCalendarOutline />
-          <Typography variant="caption">Filtre 3</Typography>
+          <IoColorPalette style={icon} />
+          <Typography variant="caption" sx={filterColors}>
+            Color
+          </Typography>
         </Box>
         <Box>
           <select
@@ -124,8 +135,10 @@ function Filter() {
             color: "#4b1a9e",
           }}
         >
-          <IoPersonOutline />
-          <Typography variant="caption">Filtre 4</Typography>
+          <MdAirlineSeatReclineExtra style={icon} />
+          <Typography variant="caption" sx={filterColors}>
+            placeNumber
+          </Typography>
         </Box>
         <Box>
           <select
@@ -146,12 +159,21 @@ function Filter() {
         </Box>
       </Box>
       <Box>
-        <Button variant="contained" sx={{ textTransform: "none" }}>
+        <Button
+          variant="contained"
+          sx={{
+            "textTransform": "none",
+            "backgroundColor": "#f04f4f",
+            "&:hover": {
+              backgroundColor: "red",
+            },
+          }}
+        >
           Find car
         </Button>
       </Box>
     </Box>
   );
-}
+};
 
 export default Filter;
