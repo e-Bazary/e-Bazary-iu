@@ -4,6 +4,8 @@ import MyLayout from "../layout/MyLayout";
 import { dataProvider } from "@/providers/data-providers";
 import authProviders from "@/providers/auth-providers";
 import LoginPage from "@/app/login/login";
+import brands from "@/operation/brands";
+import car from "@/operation/car";
 
 const AdminApp = () => (
   <Admin
@@ -15,9 +17,9 @@ const AdminApp = () => (
   >
     <Resource name="home" list={<p>hello from home</p>} />
     <Resource name="client" list={<p>not implemented</p>} />
-    <Resource name="car" list={ListGuesser} />
-    <Resource name="brand" list={ListGuesser} />
-    <Resource name="reservation" list={<p>not implemented</p>} />
+    <Resource name="car" {...car} />
+    <Resource name="brand" {...brands} />
+    <Resource name="appointment" list={ListGuesser} />
   </Admin>
 );
 

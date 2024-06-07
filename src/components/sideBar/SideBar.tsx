@@ -19,7 +19,7 @@ function SideBar() {
         height: "72vh",
         bottom: "2vh",
         left: "2.5vw",
-        width: "13vw",
+        width: "15vw",
         boxShadow: "1px 1px 5px grey",
         borderRadius: "10px",
         display: "flex",
@@ -30,12 +30,12 @@ function SideBar() {
     >
       <Box
         sx={{
-          width: "13vw",
+          width: "90%",
           paddingBlock: "1vh",
           display: "flex",
           flexDirection: "column",
           gap: "1.5vh",
-          paddingInline: "1vw",
+          marginTop: "2vh",
         }}
       >
         <MenuItem
@@ -77,11 +77,11 @@ function SideBar() {
         <MenuItem
           className="menu-items"
           onClick={() => {
-            redirect("list", "reservation");
+            redirect("list", "appointment");
           }}
         >
           <FaFileInvoiceDollar className="menu-icons" />
-          <Link className="menu-link">Reservation</Link>
+          <Link className="menu-link">Appointements</Link>
         </MenuItem>
       </Box>
       <Box sx={{ width: "90%", paddingBlock: "1vh" }}>
