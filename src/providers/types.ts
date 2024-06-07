@@ -25,6 +25,25 @@ export type Car = {
 };
 
 export type Brand = {
+  id?: number;
+  name: string;
+  image: string;
+};
+
+export type Appointment = {
   id: number;
   name: string;
+  email: string;
+  phone: string;
+  date: string;
+  time: string;
+  message: string;
+};
+
+export type Admin = {
+  id: number;
+  name: string;
+  email: string;
+  password: string;
+  urlImage: string;
 };

@@ -1,5 +1,4 @@
-import { EditGuesser, ShowGuesser } from "react-admin";
-import BrandsList from "./component/brandsList";
+import BrandsList from "./component/BrandsList";
 import ShowBrand from "./component/ShowBrand";
 import EditBrand from "./component/EditBrand";
 

@@ -2,7 +2,7 @@ import { deleteApi, get, post, put } from "./api";
 import { BazaryProvider, Brand } from "./types";
 
 export const brandProviders: BazaryProvider<Brand> = {
-  save: async (payload) => {
+  save: async (payload, _meta) => {
     return post<Brand>("/brands", payload).then((res) => res.data);
   },
   update: async (id, payload) => {

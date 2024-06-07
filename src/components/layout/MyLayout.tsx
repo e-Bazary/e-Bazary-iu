@@ -12,7 +12,13 @@ function MyLayout({ children }: LayoutProps) {
       <Filter />
       <SideBar />
       <Box
-        sx={{ position: "absolute", width: "82vw", left: "17vw", top: "23vh" }}
+        sx={{
+          position: "absolute",
+          width: "80vw",
+          left: "18.5vw",
+          top: "26.8vh",
+          minHeight: "71vh",
+        }}
       >
         {children}
       </Box>
