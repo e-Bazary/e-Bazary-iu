@@ -50,11 +50,11 @@ function SideBar() {
         <MenuItem
           className="menu-items"
           onClick={() => {
-            redirect("list", "client");
+            redirect("list", "admin");
           }}
         >
           <FaUser className="menu-icons" />
-          <Link className="menu-link">Client</Link>
+          <Link className="menu-link">Admins</Link>
         </MenuItem>
         <MenuItem
           className="menu-items"

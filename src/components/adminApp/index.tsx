@@ -6,6 +6,8 @@ import authProviders from "@/providers/auth-providers";
 import LoginPage from "@/app/login/login";
 import brands from "@/operation/brands";
 import car from "@/operation/car";
+import admin from "@/operation/admin";
+import appointement from "@/operation/appointement";
 
 const AdminApp = () => (
   <Admin
@@ -15,11 +17,11 @@ const AdminApp = () => (
     loginPage={LoginPage}
     requireAuth
   >
-    <Resource name="home" list={<p>hello from home</p>} />
-    <Resource name="client" list={<p>not implemented</p>} />
+    <Resource name="admin" {...admin} />
+    <Resource name="home" list={<p>not implemented</p>} />
     <Resource name="car" {...car} />
     <Resource name="brand" {...brands} />
-    <Resource name="appointment" list={ListGuesser} />
+    <Resource name="appointment" {...appointement} />
   </Admin>
 );
 

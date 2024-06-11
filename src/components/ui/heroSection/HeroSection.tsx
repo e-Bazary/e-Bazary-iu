@@ -52,6 +52,7 @@ const HeroSection: FC = () => {
             "backgroundColor": "#f53e31",
             "&:hover": { backgroundColor: "red" },
           }}
+          href="/admin"
         >
           Explore Now
         </Button>
