@@ -7,6 +7,7 @@ import About from "@/components/ui/about/About";
 import TopCar from "@/components/ui/topCar/TopCar";
 import TeamSection from "@/components/ui/team/TeamSection";
 import Footer from "@/components/ui/Footer/Footer";
+import BrandSection from "@/components/ui/brandSection/BrandSection";
 
 const Landing: FC = () => {
   return (
@@ -28,6 +29,7 @@ const Landing: FC = () => {
       <About />
       <TopCar />
       <TeamSection />
+      <BrandSection />
       <Footer />
     </Box>
   );
