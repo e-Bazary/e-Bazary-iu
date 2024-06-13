@@ -28,7 +28,10 @@ const AppointmentForm: React.FC = () => {
   const onSubmit = async (data: FormData) => {
     console.log(data);
     try {
-      await axios.post("/appointment", data);
+      await axios.post("http://localhost:5000/appointment", data);
+
+      await axios.post("/send-email", data);
+
       alert("Appointment saved successfully!");
     } catch (error) {
       console.error(error);

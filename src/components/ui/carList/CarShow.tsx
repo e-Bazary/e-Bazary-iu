@@ -157,7 +157,7 @@ const CarShow: FC<{ onClose: () => void }> = ({ onClose }) => {
             }}
           >
             Appointement
-             <Link href="/appointment"/>
+            <Link href="/appointment" />
           </Button>
           <Button
             sx={{
