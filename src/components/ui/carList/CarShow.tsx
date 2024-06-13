@@ -2,6 +2,7 @@ import { FC } from "react";
 import { Box, Button } from "@mui/material";
 import Image from "next/image";
 import { IoCloseCircle } from "react-icons/io5";
+import Link from "next/link";
 
 const styleBox = {
   width: "45% !important",
@@ -156,6 +157,7 @@ const CarShow: FC<{ onClose: () => void }> = ({ onClose }) => {
             }}
           >
             Appointement
+             <Link href="/appointment"/>
           </Button>
           <Button
             sx={{
