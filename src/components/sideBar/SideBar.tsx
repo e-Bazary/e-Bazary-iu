@@ -16,12 +16,11 @@ function SideBar() {
       sx={{
         backgroundColor: "whitesmoke",
         position: "fixed",
-        height: "72vh",
-        bottom: "2vh",
-        left: "2.5vw",
-        width: "15vw",
+        height: "84vh",
+        left: "0",
+        top: "16vh",
+        width: "fit-content !important",
         boxShadow: "1px 1px 5px grey",
-        borderRadius: "10px",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
@@ -30,8 +29,8 @@ function SideBar() {
     >
       <Box
         sx={{
-          width: "90%",
-          paddingBlock: "1vh",
+          width: "100%",
+          padding: "1vh",
           display: "flex",
           flexDirection: "column",
           gap: "1.5vh",
@@ -84,7 +83,7 @@ function SideBar() {
           <Link className="menu-link">Appointements</Link>
         </MenuItem>
       </Box>
-      <Box sx={{ width: "90%", paddingBlock: "1vh" }}>
+      <Box sx={{ width: "90%", paddingBottom: "5vh" }}>
         <MenuItem className="menu-items">
           <FaSignOutAlt className="menu-icons" />
           <Link className="menu-link">Log Out</Link>

@@ -15,8 +15,8 @@ function MyLayout({ children }: LayoutProps) {
         sx={{
           position: "absolute",
           width: "80vw",
-          left: "18.5vw",
-          top: "26.8vh",
+          left: "17.5vw",
+          top: "18vh",
           minHeight: "71vh",
         }}
       >
