@@ -4,7 +4,14 @@ const nextConfig = {
     API_URL: process.env.API_URL,
   },
   images: {
-    domains: ["res.cloudinary.com", "pngimg.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "*",
+        port: "",
+        pathname: "/**",
+      },
+    ],
   },
 };
 
