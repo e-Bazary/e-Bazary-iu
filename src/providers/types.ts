@@ -25,7 +25,7 @@ export type Car = {
 };
 
 export type Brand = {
-  id: number;
+  id?: number;
   name: string;
   image: string;
 };

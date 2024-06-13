@@ -4,6 +4,8 @@ import { FC, useState } from "react";
 import { useNotify } from "react-admin";
 import { IoCloseCircle } from "react-icons/io5";
 import { MdAdd } from "react-icons/md";
+import { storageProvider } from "@/providers/storage-provider"; // Assurez-vous que le chemin d'importation est correct
+
 export const AddBrand: FC<{ onClose: () => void }> = ({ onClose }) => {
   const [image, setImage] = useState<string>("");
   const [brandName, setBrandName] = useState<string>("");
@@ -12,26 +14,19 @@ export const AddBrand: FC<{ onClose: () => void }> = ({ onClose }) => {
   const handleImageUpload = async (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    const file = event.target.files;
-    if (file && file[0]) {
-      const files = file[0];
-      const formData = new FormData();
-      formData.append("file", files);
-      formData.append("upload_preset", "w64kbms9");
+    const files = event.target.files;
+    if (files && files[0]) {
+      const file = files[0];
+      const filePath = `brands/${file.name}`; // Chemin où l'image sera stockée dans Firebase Storage
       try {
-        const response = await fetch(
-          `${process.env.REACT_APP_CLOUDINARY_URL}`,
-          {
-            method: "POST",
-            body: formData,
-          }
-        );
-        if (!response.ok) throw new Error("Failed to upload image");
-
-        const data = await response.json();
-        setImage(data.secure_url);
+        const uploadResult = await storageProvider.uploadFiles({
+          path: filePath,
+          rawFile: file,
+        });
+        setImage(uploadResult.url);
       } catch (error) {
         console.error("Error uploading image: ", error);
+        notify("Failed to upload image");
       }
     }
   };
@@ -39,16 +34,19 @@ export const AddBrand: FC<{ onClose: () => void }> = ({ onClose }) => {
   const handleAddBrand = async () => {
     if (!brandName || !image) {
       notify("Brand name and image are required");
-    }
-    try {
-      await brandProviders.save({ name: brandName, image: image }, {});
-      notify("Brand added successfully");
-      onClose();
-    } catch (error) {
-      console.error("Error adding brand: ", error);
-      notify("Failed to add brand");
+    } else {
+      try {
+        // Supposons que brandProviders.save est votre méthode pour enregistrer les données
+        await brandProviders.save({ name: brandName, image: image }, {});
+        notify("Brand added successfully");
+        onClose();
+      } catch (error) {
+        console.error("Error adding brand: ", error);
+        notify("Failed to add brand");
+      }
     }
   };
+
   return (
     <Box
       sx={{
