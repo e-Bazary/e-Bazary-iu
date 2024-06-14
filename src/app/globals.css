@@ -32,6 +32,7 @@ h3 {
 .menu-items {
   border-radius: 6px !important;
   gap: 0.7rem;
+  width: 100%;
 }
 .menu-icons {
   font-size: 1.3rem;

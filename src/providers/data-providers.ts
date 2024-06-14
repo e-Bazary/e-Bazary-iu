@@ -4,6 +4,7 @@ import { carsProviders } from "./car-providers";
 import { brandProviders } from "./brand-provider";
 import { AdminProvider } from "./admin-provider";
 import { appointementProvider } from "./appointement-providers";
+
 export const getProvider = (resource: string): BazaryProvider<any> => {
   switch (resource) {
     case "car":

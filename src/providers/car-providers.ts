@@ -1,9 +1,9 @@
 import { deleteApi, get, post, put } from "./api";
-import { BazaryProvider, Car } from "./types";
+import { BazaryProvider, Car, CreateCar } from "./types";
 
 export const carsProviders: BazaryProvider<Car> = {
   save: async (payload) => {
-    return post<Car>(`/car`, payload).then((res) => res.data);
+    return post<CreateCar, Car>(`/car`, payload).then((res) => res.data);
   },
   update: async (payload) => {
     return put<Car>(`/car/${payload.id}`, payload).then((res) => res.data);

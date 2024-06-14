@@ -1,9 +1,11 @@
 import { deleteApi, get, post, put } from "./api";
-import { BazaryProvider, Appointment } from "./types";
+import { BazaryProvider, Appointment, CreateAppointment } from "./types";
 
 export const appointementProvider: BazaryProvider<Appointment> = {
   save: async (payload) => {
-    return post<Appointment>(`/appointment`, payload).then((res) => res.data);
+    return post<CreateAppointment, Appointment>(`/appointment`, payload).then(
+      (res) => res.data
+    );
   },
   update: async (payload) => {
     return put<Appointment>(`/appointment/${payload.id}`, payload).then(

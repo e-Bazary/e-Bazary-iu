@@ -1,10 +1,11 @@
-import { EditGuesser, ListGuesser, ShowGuesser } from "react-admin";
+import { ShowGuesser } from "react-admin";
 import AppointementList from "./component/AppointementList";
+import EditAppointement from "./component/EditAppointement";
 
 const appointement = {
   list: AppointementList,
   show: ShowGuesser,
-  edit: EditGuesser,
+  edit: EditAppointement,
 };
 
 export default appointement;

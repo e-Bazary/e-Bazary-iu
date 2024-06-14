@@ -1,9 +1,10 @@
 export type ResourceIdentifier = { id: number };
 export type MUTATION_TYPE = "CREATE" | "UPDATE";
+export type CreatePayload<T extends ResourceIdentifier> = Omit<T, "id">;
 
 export type BazaryProvider<T extends ResourceIdentifier> = {
   getOne: (id: number, meta: any) => Promise<T>;
-  save: (payload: T, meta: any) => Promise<T>;
+  save: (payload: CreatePayload<T>, meta: any) => Promise<T>;
   update: (payload: T, meta: any) => Promise<T>;
   delete: (id: number, meta: any) => Promise<T>;
   getList: (meta: any) => Promise<T[]>;
@@ -47,3 +48,8 @@ export type Admin = {
   password: string;
   urlImage: string;
 };
+
+export type CreateAdmin = CreatePayload<Admin>;
+export type CreateBrand = CreatePayload<Brand>;
+export type CreateCar = CreatePayload<Car>;
+export type CreateAppointment = CreatePayload<Appointment>;
