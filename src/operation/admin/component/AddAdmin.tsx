@@ -4,44 +4,48 @@ import { FC, useState } from "react";
 import { useNotify } from "react-admin";
 import { IoCloseCircle } from "react-icons/io5";
 import { MdAdd } from "react-icons/md";
+import { storageProvider } from "@/providers/storage-provider";
+import generatePassword from "generate-password";
+
 export const AddAdmin: FC<{ onClose: () => void }> = ({ onClose }) => {
   const [image, setImage] = useState<string>("");
   const [UserName, setUserName] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const notify = useNotify();
+
+  const password = generatePassword.generate({
+    length: 8,
+    numbers: true,
+    symbols: true,
+    lowercase: true,
+    uppercase: true,
+    strict: true,
+  });
 
   const handleImageUpload = async (
     event: React.ChangeEvent<HTMLInputElement>
   ) => {
-    const file = event.target.files;
-    if (file && file[0]) {
-      const files = file[0];
-      const formData = new FormData();
-      formData.append("file", files);
-      formData.append("upload_preset", "w64kbms9");
+    const files = event.target.files;
+    if (files && files[0]) {
+      const file = files[0];
+      const filePath = `admins/${file.name}`;
       try {
-        const response = await fetch(
-          `${process.env.REACT_APP_CLOUDINARY_URL}`,
-          {
-            method: "POST",
-            body: formData,
-          }
-        );
-        if (!response.ok) throw new Error("Failed to upload image");
-
-        const data = await response.json();
-        setImage(data.secure_url);
+        const uploadResult = await storageProvider.uploadFiles({
+          path: filePath,
+          rawFile: file,
+        });
+        setImage(uploadResult.url);
       } catch (error) {
         console.error("Error uploading image: ", error);
+        notify("Failed to upload image");
       }
     }
   };
 
   const handleAddAdmin = async () => {
-    if (!UserName || !email || !password) {
-      console.error("User name and email and password are required");
-      notify("User name and email and password are required");
+    if (!UserName || !email) {
+      console.error("User name and email are required");
+      notify("User name and email are required");
       return;
     }
     try {
@@ -61,6 +65,7 @@ export const AddAdmin: FC<{ onClose: () => void }> = ({ onClose }) => {
       notify("Failed to add Admin");
     }
   };
+
   return (
     <Box
       sx={{
@@ -92,23 +97,10 @@ export const AddAdmin: FC<{ onClose: () => void }> = ({ onClose }) => {
         }}
       />
       <TextField
-        label="email"
+        label="Email"
         variant="outlined"
         value={email}
         onChange={(e) => setEmail(e.target.value)}
-        sx={{
-          "width": "100%",
-          "height": "8vh",
-          "& .MuiInputBase-input": {
-            height: "8vh",
-          },
-        }}
-      />
-      <TextField
-        label="Password"
-        variant="outlined"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
         sx={{
           "width": "100%",
           "height": "8vh",

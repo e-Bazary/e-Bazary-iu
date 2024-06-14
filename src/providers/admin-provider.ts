@@ -1,9 +1,11 @@
 import { deleteApi, get, post, put } from "./api";
-import { BazaryProvider, Admin } from "./types";
+import { BazaryProvider, Admin, CreateAdmin } from "./types";
 
 export const AdminProvider: BazaryProvider<Admin> = {
   save: async (payload) => {
-    return post<Admin>("/admin", payload).then((res) => res.data);
+    return post<CreateAdmin, Admin>("/admin/register", payload).then(
+      (res) => res.data
+    );
   },
   update: async (id, payload) => {
     return put<Admin>(`/admin/${id}`, payload).then((res) => res.data);

@@ -4,7 +4,7 @@ import { FC, useState } from "react";
 import { useNotify } from "react-admin";
 import { IoCloseCircle } from "react-icons/io5";
 import { MdAdd } from "react-icons/md";
-import { storageProvider } from "@/providers/storage-provider"; // Assurez-vous que le chemin d'importation est correct
+import { storageProvider } from "@/providers/storage-provider";
 
 export const AddBrand: FC<{ onClose: () => void }> = ({ onClose }) => {
   const [image, setImage] = useState<string>("");
@@ -17,7 +17,7 @@ export const AddBrand: FC<{ onClose: () => void }> = ({ onClose }) => {
     const files = event.target.files;
     if (files && files[0]) {
       const file = files[0];
-      const filePath = `brands/${file.name}`; // Chemin où l'image sera stockée dans Firebase Storage
+      const filePath = `brands/${file.name}`;
       try {
         const uploadResult = await storageProvider.uploadFiles({
           path: filePath,
@@ -36,7 +36,6 @@ export const AddBrand: FC<{ onClose: () => void }> = ({ onClose }) => {
       notify("Brand name and image are required");
     } else {
       try {
-        // Supposons que brandProviders.save est votre méthode pour enregistrer les données
         await brandProviders.save({ name: brandName, image: image }, {});
         notify("Brand added successfully");
         onClose();
