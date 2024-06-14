@@ -11,6 +11,7 @@ import {
 import { MdAdd, MdDelete } from "react-icons/md";
 import { AddAdmin } from "./AddAdmin";
 import { FaRegEdit } from "react-icons/fa";
+import Image from "next/image";
 
 export default function AdminList() {
   const [open, setOpen] = React.useState(false);
@@ -62,15 +63,15 @@ export default function AdminList() {
         <TextField source="id" />
         <FunctionField
           render={(admin: Admin) => (
-            <img
+            <Image
               src={admin.urlImage}
               alt={admin.name}
               style={{
-                width: "3.5rem",
-                height: "3.5rem",
                 objectFit: "cover",
                 borderRadius: "100%",
               }}
+              height={45}
+              width={45}
             />
           )}
         />
