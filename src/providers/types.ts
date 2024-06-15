@@ -12,9 +12,9 @@ export type BazaryProvider<T extends ResourceIdentifier> = {
 
 export type Car = {
   id: number;
-  productName: string;
+  name: string;
   description: string;
-  brand: string;
+  brandId: string;
   model: string;
   price: number;
   color: string;
@@ -23,6 +23,7 @@ export type Car = {
   placeNumber: number;
   status: boolean;
   type: string;
+  imageurl: string;
 };
 
 export type Brand = {

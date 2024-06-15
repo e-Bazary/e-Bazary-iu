@@ -1,6 +1,9 @@
-import { FC } from "react";
+"use client";
+import { FC, useState, useEffect } from "react";
 import { Box } from "@mui/material";
 import CarList from "../carList/carList";
+import { carsProviders } from "@/providers/car-providers";
+import { Car } from "@/providers/types";
 export const h5Style = {
   fontSize: "1.7rem",
 };
@@ -8,7 +11,14 @@ export const pStyle = {
   fontSize: "1.1rem",
   width: "88%",
 };
+
 const TopCar: FC = () => {
+  const [cars, setCars] = useState<Car[]>([]);
+  useEffect(() => {
+    carsProviders.getList({}).then((data) => {
+      setCars(data.slice(0, 4));
+    });
+  }, []);
   return (
     <Box
       sx={{
@@ -40,10 +50,9 @@ const TopCar: FC = () => {
           width: "100%",
         }}
       >
-        <CarList />
-        <CarList />
-        <CarList />
-        <CarList />
+        {cars.map((car) => (
+          <CarList key={car.id} {...car} power={Number(car.power)} />
+        ))}
       </Box>
     </Box>
   );

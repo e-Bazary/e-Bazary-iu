@@ -9,8 +9,35 @@ const styleBox = {
   borderRadius: "0.3rem",
   padding: "0.3rem",
 };
+interface CarShowProps {
+  onClose: () => void;
+  name: string;
+  model: string;
+  price: number;
+  color: string;
+  power: number;
+  placeNumber: number;
+  motorType: string;
+  status: boolean;
+  type: string;
+  imageurl: string;
+  description: string;
+}
 
-const CarShow: FC<{ onClose: () => void }> = ({ onClose }) => {
+const CarShow: FC<CarShowProps> = ({
+  onClose,
+  name,
+  model,
+  price,
+  color,
+  power,
+  placeNumber,
+  motorType,
+  status,
+  type,
+  imageurl,
+  description,
+}) => {
   return (
     <Box
       sx={{
@@ -35,8 +62,8 @@ const CarShow: FC<{ onClose: () => void }> = ({ onClose }) => {
         }}
       >
         <Image
-          src="/assets/mini-cooper.jpg"
-          alt="mini-cooper"
+          src={imageurl}
+          alt={name}
           width={1920}
           height={1080}
           style={{
@@ -68,7 +95,7 @@ const CarShow: FC<{ onClose: () => void }> = ({ onClose }) => {
               fontWeight: "bold",
             }}
           >
-            type
+            {type}
           </p>
           <p
             style={{
@@ -81,7 +108,7 @@ const CarShow: FC<{ onClose: () => void }> = ({ onClose }) => {
               fontSize: "0.9rem",
             }}
           >
-            status
+            {status}
           </p>
         </Box>
       </Box>
@@ -100,11 +127,11 @@ const CarShow: FC<{ onClose: () => void }> = ({ onClose }) => {
         <Box sx={{ display: "flex", flexWrap: "wrap", gap: "0.7rem" }}>
           <Box sx={styleBox}>
             <h5>Product Name</h5>
-            <p>Mini Cooper</p>
+            <p>{name}</p>
           </Box>
           <Box sx={styleBox}>
             <h5>Model</h5>
-            <p>Sedan</p>
+            <p>{model}</p>
           </Box>
           <Box sx={styleBox}>
             <h5>Year</h5>
@@ -112,30 +139,27 @@ const CarShow: FC<{ onClose: () => void }> = ({ onClose }) => {
           </Box>
           <Box sx={styleBox}>
             <h5>Color</h5>
-            <p>Black</p>
+            <p>{color}</p>
           </Box>
           <Box sx={styleBox}>
             <h5>Price</h5>
-            <p>1000000</p>
+            <p>{price}</p>
           </Box>
           <Box sx={styleBox}>
             <h5>Brand</h5>
-            <p>Mini</p>
+            <p>{model}</p>
           </Box>
           <Box sx={styleBox}>
             <h5>Power</h5>
-            <p>1.6</p>
+            <p>{power}</p>
           </Box>
           <Box sx={styleBox}>
             <h5>Plate Number</h5>
-            <p>5</p>
+            <p>{placeNumber}</p>
           </Box>
           <Box>
             <h5>Description</h5>
-            <p>
-              Lorem ipsum dolor sit amet consectetur adipisicing elit. Quisquam,
-              quos.
-            </p>
+            <p>{description}</p>
           </Box>
         </Box>
         <Box

@@ -1,6 +1,14 @@
-import { Box } from "@mui/material";
+import { Box, Typography } from "@mui/material";
 import Image from "next/image";
-import { DeleteButton, EditButton } from "react-admin";
+import {
+  DeleteButton,
+  EditButton,
+  FunctionField,
+  ImageField,
+  Show,
+  TextField,
+  useShowContext,
+} from "react-admin";
 
 const styleBox = {
   width: "45% !important",
@@ -11,7 +19,7 @@ const styleBox = {
 
 export default function CarShow() {
   return (
-    <>
+    <Show actions={false}>
       <Box display="flex" flexDirection="row" alignItems="center" gap="1rem">
         <Box
           sx={{
@@ -22,17 +30,21 @@ export default function CarShow() {
             position: "relative",
           }}
         >
-          <Image
-            src="/assets/mini-cooper.jpg"
-            alt="mini-cooper"
-            width={1920}
-            height={1080}
-            style={{
-              objectFit: "cover",
-              height: "100%",
-              width: "100%",
-              borderRadius: "1rem",
-            }}
+          <FunctionField
+            render={(record: any) => (
+              <Image
+                src={record.imageurl}
+                alt="mini-cooper"
+                width={1920}
+                height={1080}
+                style={{
+                  objectFit: "cover",
+                  height: "100%",
+                  width: "100%",
+                  borderRadius: "1rem",
+                }}
+              />
+            )}
           />
           <Box
             sx={{
@@ -45,8 +57,9 @@ export default function CarShow() {
               paddingInline: "1rem",
             }}
           >
-            <p
-              style={{
+            <TextField
+              source="type"
+              sx={{
                 color: "white",
                 background: "black",
                 height: "fit-content",
@@ -55,11 +68,10 @@ export default function CarShow() {
                 borderRadius: "5px",
                 fontWeight: "bold",
               }}
-            >
-              type
-            </p>
-            <p
-              style={{
+            />
+            <TextField
+              source="status"
+              sx={{
                 color: "white",
                 background: "#3ce669",
                 height: "fit-content",
@@ -68,9 +80,7 @@ export default function CarShow() {
                 fontWeight: "bold",
                 fontSize: "0.9rem",
               }}
-            >
-              status
-            </p>
+            />
           </Box>
         </Box>
         <Box
@@ -88,42 +98,39 @@ export default function CarShow() {
           <Box sx={{ display: "flex", flexWrap: "wrap", gap: "0.7rem" }}>
             <Box sx={styleBox}>
               <h5>Product Name</h5>
-              <p>Mini Cooper</p>
+              <TextField source="name" />
             </Box>
             <Box sx={styleBox}>
               <h5>Model</h5>
-              <p>Sedan</p>
+              <TextField source="model" />
             </Box>
             <Box sx={styleBox}>
               <h5>Year</h5>
-              <p>2020</p>
+              <TextField source="year" />
             </Box>
             <Box sx={styleBox}>
               <h5>Color</h5>
-              <p>Black</p>
+              <TextField source="color" />
             </Box>
             <Box sx={styleBox}>
               <h5>Price</h5>
-              <p>1000000</p>
+              <TextField source="price" />
             </Box>
             <Box sx={styleBox}>
               <h5>Brand</h5>
-              <p>Mini</p>
+              <ImageField source="brand.image" />
             </Box>
             <Box sx={styleBox}>
               <h5>Power</h5>
-              <p>1.6</p>
+              <TextField source="power" />
             </Box>
             <Box sx={styleBox}>
               <h5>Plate Number</h5>
-              <p>5</p>
+              <TextField source="placeNumber" />
             </Box>
             <Box>
               <h5>Description</h5>
-              <p>
-                Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                Quisquam, quos.
-              </p>
+              <TextField source="description" />
             </Box>
           </Box>
           <Box
@@ -133,9 +140,12 @@ export default function CarShow() {
               justifyContent: "flex-end",
               gap: "1rem",
             }}
-          ></Box>
+          >
+            <EditButton />
+            <DeleteButton />
+          </Box>
         </Box>
       </Box>
-    </>
+    </Show>
   );
 }

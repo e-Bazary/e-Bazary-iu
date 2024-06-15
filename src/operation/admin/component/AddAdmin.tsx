@@ -9,7 +9,7 @@ import generatePassword from "generate-password";
 
 export const AddAdmin: FC<{ onClose: () => void }> = ({ onClose }) => {
   const [image, setImage] = useState<string>("");
-  const [UserName, setUserName] = useState<string>("");
+  const [name, setName] = useState<string>("");
   const [email, setEmail] = useState<string>("");
   const notify = useNotify();
 
@@ -42,22 +42,15 @@ export const AddAdmin: FC<{ onClose: () => void }> = ({ onClose }) => {
     }
   };
 
-  const handleAddAdmin = async () => {
-    if (!UserName || !email) {
-      console.error("User name and email are required");
-      notify("User name and email are required");
-      return;
-    }
+  const handleAddAdmin = async (data: any) => {
+    const save = {
+      name: name,
+      email: email,
+      password: password,
+      urlImage: image,
+    };
     try {
-      await AdminProvider.save(
-        {
-          name: UserName,
-          email: email,
-          password: password,
-          urlImage: image,
-        },
-        {}
-      );
+      await AdminProvider.save(save, {});
       notify("Admin added successfully");
       onClose();
     } catch (error) {
@@ -86,8 +79,8 @@ export const AddAdmin: FC<{ onClose: () => void }> = ({ onClose }) => {
       <TextField
         label="Name"
         variant="outlined"
-        value={UserName}
-        onChange={(e) => setUserName(e.target.value)}
+        value={name}
+        onChange={(e) => setName(e.target.value)}
         sx={{
           "width": "100%",
           "height": "8vh",

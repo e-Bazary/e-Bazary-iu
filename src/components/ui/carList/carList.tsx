@@ -18,8 +18,33 @@ const iconStyle = {
 const pStyle = {
   fontSize: "0.9rem",
 };
+interface CarListProps {
+  name: string;
+  model: string;
+  price: number;
+  color: string;
+  power: number;
+  placeNumber: number;
+  motorType: string;
+  status: boolean;
+  type: string;
+  imageurl: string;
+  description: string;
+}
 
-const CarList = () => {
+const CarList = ({
+  name,
+  model,
+  price,
+  color,
+  power,
+  placeNumber,
+  motorType,
+  status,
+  type,
+  imageurl,
+  description,
+}: CarListProps) => {
   const [open, setOpen] = React.useState(false);
   const toggleModal = () => {
     setOpen((prev) => !prev);
@@ -40,8 +65,7 @@ const CarList = () => {
         sx={{
           height: "30vh",
           width: "100%",
-          backgroundImage:
-            "linear-gradient(rgba(0,0,0,0.3),rgba(0,0,0,0.3)), url('/assets/mercedes-190-sl-3690957_1280.jpg')",
+          backgroundImage: `linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(${imageurl})`,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundRepeat: "no-repeat",
@@ -64,7 +88,7 @@ const CarList = () => {
             fontWeight: "bold",
           }}
         >
-          2024
+          202
         </p>
         <p
           style={{
@@ -77,7 +101,7 @@ const CarList = () => {
             fontSize: "0.9rem",
           }}
         >
-          Sedan
+          {model}
         </p>
       </Box>
       <Box>
@@ -88,7 +112,7 @@ const CarList = () => {
             paddingBlock: "1vh",
           }}
         >
-          mercedes 190 sl
+          {name}
         </p>
         <Box
           sx={{
@@ -109,7 +133,7 @@ const CarList = () => {
             }}
           >
             <FaDollarSign />
-            <p style={{ fontWeight: "bolder" }}>4000</p>
+            <p style={{ fontWeight: "bolder" }}>{price}</p>
           </Box>
           <Box
             sx={{ height: "3vh", width: "3vw", backgroundColor: "black" }}
@@ -125,15 +149,15 @@ const CarList = () => {
         >
           <Box sx={styles}>
             <LiaTachometerAltSolid style={iconStyle} />
-            <p style={pStyle}>160 HP</p>
+            <p style={pStyle}>{power}</p>
           </Box>
           <Box sx={styles}>
             <MdAirlineSeatReclineExtra style={iconStyle} />
-            <p style={pStyle}>4 sites</p>
+            <p style={pStyle}>{placeNumber}</p>
           </Box>
           <Box sx={styles}>
             <RiGasStationLine style={iconStyle} />
-            <p style={pStyle}>Hybrid</p>
+            <p style={pStyle}>{motorType}</p>
           </Box>
         </Box>
         <Button
@@ -160,7 +184,20 @@ const CarList = () => {
           alignItems: "center",
         }}
       >
-        <CarShow onClose={toggleModal} />
+        <CarShow
+          onClose={toggleModal}
+          name={name}
+          model={model}
+          price={price}
+          color={color}
+          power={power}
+          placeNumber={placeNumber}
+          motorType={motorType}
+          status={status}
+          type={type}
+          imageurl={imageurl}
+          description={description}
+        />
       </Modal>
     </Box>
   );
