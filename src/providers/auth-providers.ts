@@ -2,7 +2,7 @@ import { AuthProvider } from "react-admin";
 let isConnected = false;
 const authProviders: AuthProvider = {
   login: ({ username, password }) => {
-    if (username === "admin" && password === "password") {
+    if (username === "rotsy@gmail.com" && password === "password") {
       isConnected = true;
       return Promise.resolve();
     } else {

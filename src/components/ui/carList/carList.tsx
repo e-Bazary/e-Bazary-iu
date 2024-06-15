@@ -23,7 +23,7 @@ interface CarListProps {
   model: string;
   price: number;
   color: string;
-  power: number;
+  power: string;
   placeNumber: number;
   motorType: string;
   status: boolean;

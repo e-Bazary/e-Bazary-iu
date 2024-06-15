@@ -51,7 +51,7 @@ const TopCar: FC = () => {
         }}
       >
         {cars.map((car) => (
-          <CarList key={car.id} {...car} power={Number(car.power)} />
+          <CarList key={car.id} {...car} power={car.power} />
         ))}
       </Box>
     </Box>

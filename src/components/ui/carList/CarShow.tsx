@@ -15,7 +15,7 @@ interface CarShowProps {
   model: string;
   price: number;
   color: string;
-  power: number;
+  power: string;
   placeNumber: number;
   motorType: string;
   status: boolean;
@@ -54,7 +54,6 @@ const CarShow: FC<CarShowProps> = ({
     >
       <Box
         sx={{
-          backgroundColor: "blue",
           height: "100%",
           width: "40%",
           borderRadius: "0.7rem",
